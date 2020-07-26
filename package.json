@@ -1,0 +1,21 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "A bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=default&&nodemon index.js",
+    "start-local": "set NODE_ENV=development&&nodemon index.js"
+  },
+  "author": "Pijiys",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.1",
+    "custom-discord-jokes": "^1.0.2",
+    "discord.js": "^12.1.1",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
