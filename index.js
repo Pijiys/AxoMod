@@ -2,12 +2,13 @@ const  Discord  = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 const config = require('config');
+const c = require('config');
 
 const token = config.get('token');
 
 
 client.on("message", msg => {
-    var dm = client.channels.cache.get("737348052767211571");
+    var dm = client.channels.cache.get("745688210935513217");
     if (msg.channel.type === "dm") {
       if (msg.author.id === client.user.id ) return;
   
@@ -35,23 +36,30 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command)
 }
 
+client.on("guildMemberAdd", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '✋gelen-giden')
+    welcomeChannel.send (`🔺: Hoşgeldin ${member} 🤗`)
+    member.roles.add("745665025544290426");
+})
 
+client.on("guildMemberRemove", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === '✋gelen-giden')
+    welcomeChannel.send (`🔻: Görüşürüz ${member} 🔨`)
+})
 
 
 
 client.on('message', async message => {
-
-
     if (message.channel.type === "dm") {
         if (message.author.bot) return;
         const boun = new Discord.MessageEmbed()
          .setTitle(`${client.user.username} - Dm Mesajı`)
          .setColor('RANDOM')
          .addField(`Mesajı Gönderen`, message.author.tag)
-         .addField(`ID'`, message.author.id)
+         .addField(`ID`, message.author.id)
          .addField(`Gönderilen Mesaj`, message.content)
          .setThumbnail(message.author.avatarURL) 
-    client.channels.cache.find("737282816576061470").send(boun);
+   client.channels.cache.get('746046835453591552').send(boun);
     }
         
     
@@ -70,17 +78,11 @@ client.on('message', async message => {
         case "avatar":
             client.commands.get('avatar').execute(client, message, args);
             break;
-        case "embed":
-            client.commands.get('embed').execute(client, message, args);
-            break;
         case "kick":
             client.commands.get('kick').execute(client, message, args);
             break;
         case "ban":
             client.commands.get('ban').execute(client, message, args);
-            break;
-        case "unban":
-            client.commands.get('unban').execute(client, message, args);
             break;
         case "ticket":
             client.commands.get('ticket').execute(client, message, args);
@@ -101,8 +103,9 @@ client.on('message', async message => {
             client.commands.get('dm').execute(client, message, args);
             break;
         case "mute":
-        client.commands.get('mute').execute(client, message, args);
-        break;
+            client.commands.get('mute').execute(client, message, args);
+            break;
+        
 
     }
 })

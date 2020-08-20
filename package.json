@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "github": "set NODE_ENV=default&&nodemon index.js",
-    "start-with-token": "set NODE_ENV=development&&nodemon index.js"
+    "start": "set NODE_ENV=development&&nodemon index.js"
   },
   "author": "Pijiys",
   "license": "ISC",
