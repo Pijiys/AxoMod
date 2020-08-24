@@ -1,6 +1,6 @@
-# DoggeKek
+# Pijiys Bot ✔
 
-DoggeKek bir tane sunucu botudur. Moderatorluk yapat.
+Pijiys Bot ✔ bir tane sunucu botudur. Moderatorluk yapat.
 
 ## Indirme
 
